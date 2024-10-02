@@ -1,0 +1,62 @@
+#include <iostream>
+#include<cstdlib>
+
+using namespace std;
+void printMenu();
+int main()
+{
+    int userselection;
+    //while loop allows for program to keep executing until user exits
+    while(userselection != 3){
+        printMenu();
+        cin>>userselection;
+        //RNG from 0-2
+        int randomNum = rand() % 3;
+        switch(userselection){
+            case 0: cout<<"You chose ROCK";
+                break;
+            case 1: cout<<"You chose PAPER";
+                break;
+            case 2: cout<<"You chose SCISSORS"; 
+                break;
+            case 3:cout<<"exiting..."; 
+                break;
+        }
+        cout<<endl;
+        if(userselection < 3){
+            switch(randomNum){
+                case 0: cout<<"CPU chose ROCK";
+                    break;
+                case 1: cout<<"CPU chose PAPER";
+                    break;
+                case 2: cout<<"CPU chose SCISSORS"; 
+            }
+            
+            if(randomNum == userselection ){
+                cout<<endl<<"DRAW! try again?";
+            }
+            else if(randomNum == 0 && userselection == 2){
+                cout<<endl<<"LOSER!";
+            }
+            else if(randomNum == 1 && userselection == 0){
+                cout<<endl<<"LOSER!"<<endl;
+            }
+            else if(randomNum == 2 && userselection == 1){
+                cout<<endl<<"LOSER!";
+            }
+            else cout<<endl<<"WINNER!";
+        }
+    }
+        
+     
+    return 0;
+}
+
+void printMenu(){
+    cout<<"----------------------------------------------ROCK PAPER SCISSORS GAME----------------------------------------------"<<endl;
+    cout<<"Please select an option:"<<endl;
+    cout<<"[0] Rock"<<endl;
+    cout<<"[1] Paper"<<endl;
+    cout<<"[2] Scissors"<<endl;
+    cout<<"[3] EXIT"<<endl;
+}
